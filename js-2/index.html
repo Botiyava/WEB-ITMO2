@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Title</title>
+
+</head>
+<body>
+<form id="form">
+    <span>Количество строк</span>
+    <input type="number" id="Cols" min="0" />
+    <span>Количество столбцов</span>
+    <input type="number" id="Rows" min="0" />
+    <input type="button" value="Создать таблицу" onclick="create()" />
+</form>
+<div id="Functions">
+    <h1>Возможности</h1>
+    <div>
+        <p>Изменить таблицу</p>
+        <form action="">
+            <input id="chBB" type="number" min="0" max="999" value="2" oninput="changeBorderButton()" />
+            <select name="" id="chBS" oninput="changeBorderButton()">
+                <option value="solid">Сплошная</option>
+                <option value="dotted">Из точек</option>
+                <option value="dashed">Пунктирная</option>
+                <option value="double">Двойная</option>
+                <option value="groove">Объёмная</option>
+                <option value="rige">объемная граница с толстой кромкой</option>
+                <option value="inset">Вдавленная</option>
+                <option value="outset">Выдавленная</option>
+            </select>
+            <input id="SetBorder" type="button" value="Set 2px solid" onclick="setBorder();" />
+        </form>
+    </div>
+    <div>
+        <p>Добавить заголовок таблицы</p>
+        <form action="">
+            <input id="title" type="textarea" />
+            <input type="button" value="add" onclick="addTitle();" />
+        </form>
+    </div>
+    <div>
+        <p>Удалить столбец</p>
+        <form action="">
+            <input id="rmTr" type="number" min="0" />
+            <input type="button" value="remove" onclick="removeTr();" />
+        </form>
+    </div>
+    <div>
+        <p>Случайный эффект</p>
+        <button onclick="makeMagic();">Magic</button>
+    </div>
+    <div>
+        <p>Удалить таблицу</p>
+        <button onclick="removeTable();">remove</button>
+    </div>
+</div>
+<div id="tableWrap"></div>
+</body>
+
+<script src="script.js"></script>
+
+</html>
