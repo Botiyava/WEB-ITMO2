@@ -1,0 +1,15 @@
+*{
+    background: #191919;
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: lighter;
+    text-shadow: 0 0 10 #FF0000;
+}
+
+.ban{
+    color: black;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    border-radius: 10px;
+}
