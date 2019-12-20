@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jQueryTask</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("td").css("height", "75px").css("width", "280px").css("font-family", "helvetica").css("text-align", "center");
+        })
+
+        //таск первый - перекрасить по классам
+        $(document).ready(function()
+        {
+            $(".first").css("color", "black");
+            $(".second").css("color","grey");
+            $("p.blue").css("color", "darkblue");
+            $("p.green").css("color","darkgreen");
+        });
+        //таск второй - отключить формы
+        $(document).ready(function(){
+            $(".disable").ready(function(){
+                $(".disable").attr("disabled", "");
+            })
+        //таск третий - нарисовать стрелочки, установить открытие ссылок в новой вкладке
+
+            $("a").prepend("↗ ");
+            $("a").attr("target", "_blank");
+        })
+        //таск четвертый - поменять http на https
+        $(document).ready(function(){
+            $("a").attr("href", function(index, check) {
+                check = check.split("http")
+                if (check[0]=='' && check[1][0]!='s')
+                {
+                    return ('https'+check.join(''));
+                }
+                else
+                    return (check.join('http'));
+            })
+        })
+        //стилизация кнопочки
+        $(document).ready(function(){
+            $("#comeback").css("position", "fixed").css("background-color", "black").css("color", "white").css("padding", "15px").css("border-radius", "10px").css("margin-left", "1350px");
+            //работа кнопочки
+            $("#comeback").click(function(){
+                $("a").removeAttr("target").html(function(index,check){
+                    if (check[0]=="↗")
+                    {
+                        return check.slice(2);
+                    }
+                })
+            })
+        })
+        //эффекты таблицы
+        $(document).ready(function(){
+            $("#tr1").click(function(){
+                $(".toggleIt").toggle();
+            })
+            $("#tr2").click(function(){
+                $(".fadeToggleIt").fadeToggle();
+            })
+            $("#tr3").click(function(){
+                $(".animation").css("position", "relative").animate({
+                    left: "50px",
+                    opacity: "0.4",
+                });
+            })
+            $("#tr4").click(function(){
+                $(".moveMe").slideUp(1000);
+            })
+            $("#tr5").click(function(){
+                $(".recolor").css("color", "green").fadeToggle();
+            })
+        })
+
+    </script>
+
+</head>
+<body bgcolor="#faebd7" text="black">
+
+<div>
+    <input type="button" name="comeback" value="comeback" id="comeback">
+</div>
+
+<h1>Задание 1</h1>
+<div><h3>Ссылки</h3>
+    <a href="https://ru.wikipedia.org/wiki/Slipknot" class="first">Slipknot</a><br>
+    <a href="https://music.yandex.ru/artist/13002" class="first">Rammstein</a><br>
+    <a href="https://open.spotify.com/artist/3TOqt5oJwL9BE2NG9MEwDa" class="second">Disturbed</a><br>
+    <a href="https://www.last.fm/ru/music/Marilyn+Manson">Marilyn Manson</a><br>
+    <a href="https://www.youtube.com/watch?v=IrcjNfSPtBQ" class="first">Тимати - Москва</a></div>
+<br>
+
+<div><h3>Параграфы</h3>
+    <p class="blue">Параграф 1, синий</p>
+    <p class="green">Параграф 2, зеленый</p>
+    <p class="blue"> Параграф 3, синий</p>
+    <p class="green">Параграф 4, зеленый</p></div>
+<br>
+
+<div>
+    <h3>Форма</h3>
+    <form>
+        <input type="text" name="field1" size="100" placeholder="Поле" class="disable">
+        <br>
+        <input type="radio" name="field2" value="Раз" class="disable"> Раз
+        <br>
+        <input type="radio" name="field2" value="Два" class="disable"> Два
+        <br>
+        <input type="checkbox" name="field3" class="disable"> Еще поле
+        <br><br>
+    </form>
+</div>
+
+<div>
+    <table border="2" bgcolor="black" style="color: white" width="600">
+        <tr>
+            <td>Некоторый html-контент</td>
+            <td>Эффект/анимация</td>
+        </tr>
+        <tr>
+            <td><p class="toggleIt">Этот текст можно скрыть/проявить</p></td>
+            <td><button id="tr1">Скрыть/проявить</button></td>
+        </tr>
+        <tr>
+            <td><p class="fadeToggleIt">fadeToggle</p></td>
+            <td><button id="tr2">Слева красиво исчезнет/выплывет текст</button></td>
+        </tr>
+        <tr>
+            <td><p class="animation">Анимация</p></td>
+            <td><button id="tr3">Зацените как умеет</button></td>
+        </tr>
+        <tr>
+            <td><p class="moveMe">Текст уходит вниз</p></td>
+            <td><button id="tr4">Текст слева  уедет вниз</button></td>
+        </tr>
+        <tr>
+            <td><p class="recolor">Могу менять цвет и исчезать одновременно</p></td>
+            <td><button id="tr5">Правда может</button></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
